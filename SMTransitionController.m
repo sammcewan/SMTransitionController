@@ -56,12 +56,12 @@
                      withOptions:(UIViewAnimationOptions)options
 {
     aViewController.view.frame = self.containerView.bounds;
+    [_containerView insertSubview:aViewController.view atIndex:0];
     [UIView transitionWithView:self.containerView
                       duration:0.65f
                        options:options
                     animations:^{
-                        [self.viewController.view removeFromSuperview];
-                        [self.containerView addSubview:aViewController.view];
+                        [_viewController.view removeFromSuperview];
                     }
                     completion:^(BOOL finished){
                         self.viewController = aViewController;
